@@ -39,9 +39,9 @@ jobs:
 
       - name: Criar rede e volume
         run: |
-          ssh -i ~/.ssh/deploy gr-${{ env.SLUG }}@gr.lab.ayty.org "gr-docker network create web || true"
-          ssh -i ~/.ssh/deploy gr-${{ env.SLUG }}@gr.lab.ayty.org "gr-docker network create --internal dados || true"
-          ssh -i ~/.ssh/deploy gr-${{ env.SLUG }}@gr.lab.ayty.org "gr-docker volume create pgdata || true"
+          ssh -i ~/.ssh/deploy gr-${{ env.SLUG }}@gr.lab.ayty.org "gr-docker network create web" || true
+          ssh -i ~/.ssh/deploy gr-${{ env.SLUG }}@gr.lab.ayty.org "gr-docker network create --internal dados" || true
+          ssh -i ~/.ssh/deploy gr-${{ env.SLUG }}@gr.lab.ayty.org "gr-docker volume create pgdata" || true
           
       - name: Subir banco, API e front
         run: |
